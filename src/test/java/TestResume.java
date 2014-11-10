@@ -29,8 +29,8 @@ public class TestResume extends Assert {
         workDescription.city = "Saint Petersburg";
         workDescription.name = "i-FREE";
         workDescription.site = "www.i-free.com";
-        workDescription.startMonth = 12;
-        workDescription.startYear = 2013;
+        workDescription.setStartMonth(Month.DECEMBER);
+        workDescription.setStartYear(2020); //Wery crazy number for year value
         testResume.education.add(educationDescription);
         testResume.experience.add(workDescription);
     }
@@ -47,6 +47,7 @@ public class TestResume extends Assert {
         assertEquals("Tyufanov", testResume.personalData.getLastName());
         assertEquals(SheduleWork.FULL_TIME, testResume.professionData.getSheduleWork());
         assertEquals("Печальный \"/", testResume.professionData.getLevel());
+        assertNotEquals(0, workDescription.getStartYear());
     }
 
     @After
